@@ -1,0 +1,160 @@
+Aşağıdaki dil çiftlerinden hangisi esinlenildiği dil bakımından YANLIŞ verilmiştir?
+A. ML - Haskell
+B. C++ - Java
+C. Lisp - Scheme
+D. Pascal - Ada
+E. Fortran - Python
+ANSWER: E
+
+(*)Aşağıdakilerden hangisi makine dilininin bir komutu(satırı) olabilir?
+A. 0010001000000100
+B. printf("%d", sayi);
+C. LD R1, FIRST
+D. for(int data:list) sum += data;
+E. (car (cdr '(1 2 3 4)))
+ANSWER: A
+
+Makine dilindeki işlem kodu(opcode) aşağıdakilerden hangisini belirtir?
+A. Komutun parametrelerini
+B. Gerçekleştirilecek işlemin türünü
+C. Kodun satır numarasını
+D. İşlenecek olan veriyi
+E. Kodun yerleştiği bellek konumunu
+ANSWER: B
+
+Makine kodunu bilgisayar belleğine aşağıdakilerden hangisi yükler?
+A. Yükleyici(Loader)
+B. Yorumlayıcı(Interpreter)
+C. Derleyici(Compiler)
+D. Bağlayıcı(Linker)
+E. Entegre geliştirme ortamı(IDE)
+ANSWER: A
+
+Aşağıdakilerden hangisi bir Assembly dili komutu DEĞİLDİR?
+A. ADD
+B. BRZP
+C. NOT
+D. FOR
+E. AND
+ANSWER: D
+
+Aşağıdakilerden hangisi diğerlerine göre daha düşük seviyeli bir dildir?
+A. Fortran
+B. COBOL
+C. Makine dili
+D. Assembly dili
+E. Java
+ANSWER: C
+
+Aşağıdakilerden hangisi ALGOL dilinin özellikleri arasında YER ALMAZ?
+A. for döngüsü içerir
+B. if-else ifadeleri içerir
+C. Blok yapısını destekler
+D. Yan etki barındırmaz
+E. Dizi yapısını içerir
+ANSWER: D
+
+Aşağıdakilerden hangisi Von Neumann mimarisinin bir özelliği DEĞİLDİR?
+A. Veri ve komutlar aynı bellekte saklanır
+B. Kodlar paralel olarak çalıştırılır
+C. Komutlar bellekten her seferinde bir tane olmak üzere alınır
+D. Komutlar ardışık olarak çalışır(atlama emri yoksa)
+E. Bellekten alınan komutları işlemek için bir merkezi işlem birimi bulunur
+ANSWER: B
+
+Aşağıdakilerden hangisi lambda hesabına(lambda calculus) hesaplama modeline dayanan bir dildir?
+A. Fortran
+B. COBOL
+C. Assembly dili
+D. Lisp
+E. C
+ANSWER: D
+
+Aşağıdakilerden hangisi yapısal veri soyutlamalarına örnek OLAMAZ?
+A. Diziler(arrays)
+B. Kayıt yapısı(record, struct)
+C. Metin dosyaları
+D. Değişken bildirimleri
+E. Sınıf(class) yapıları
+ANSWER: D
+
+Aşağıdakilerden hangisi bir temel veri soyutlaması değildir?
+A. Değişkenler
+B. Veri türleri
+C. Bildirim(Declaration)
+D. Aritmetik işlemler
+E. Modül veya paket yapısı
+ANSWER: E
+
+Uygulama programlama arayüzü(API) hangi türde bir soyutlamadır?
+A. Temel veri soyutlaması
+B. Yapısal veri soyutlaması
+C. Birim veri soyutlaması
+D. Temel kontrol soyutlaması
+E. Yapısal kontrol soyutlaması
+ANSWER: C
+
+Aşağıdakilerden hangisi bir yapısal kontrol soyutlaması değildir?
+A. Yineleyici(Iterator)
+B. Prosedür(alt rutin)
+C. Fonksiyon
+D. Yüksek dereceli fonksiyonlar(higher order functions)
+E. İş parçacıkları(thread)
+ANSWER: E
+
+(*)Aşağıdakilerden hangisi veya hangileri zorunlu(imperative) paradigmanın özellikleridir? I. Emirlerin sıralı yürütülmesi II. Bellek konumlarını temsil eden değişkenlerin kullanılması III. Yan etkilerin bulunmaması IV. Değişkenlerin değerlerini değiştirmek için atama işleminin kullanılması
+A. Yalnız I
+B. Yalnız III
+C. I ve III
+D. I., II. ve IV.
+E. Hepsi
+ANSWER: D
+
+Aşağıdakilerden hangisi bir programlama paradigması DEĞİLDİR?
+A. Zorunlu(Imperative)
+B. Nesne-yönelimli(Object oriented)
+C. Fonksiyonel(Functional)
+D. Mantıksal(Logical)
+E. Katmanlı(Layered)
+ANSWER: E
+
+Sözdizimi(Syntax) bir doğal dilin hangi özelliğine benzer?
+A. Gramerine
+B. Akustiğine
+C. Eklerin eklenme biçimine
+D. Ailesine
+E. Nesnelere cinsiyet kazandırmasına
+ANSWER: A
+
+Bir programlama dilinin anlamsal kısmını ifade eden terim aşağıdakilerden hangisidir?
+A. Semantik(Semantics)
+B. Sözdizimi(Syntax)
+C. Semboller(Tokens)
+D. Sözcük yapısı(Lexical structure)
+E. Sözdizimsel şeker(Syntactic sugar)
+ANSWER: A
+
+Derleyici ve yorumlayıcı hakkındaki aşağıdaki ifadelerden hangisi doğrudur?
+A. Her ikisi de çalıştırılabilir kod dosyaları(programlar) üretir.
+B. Hem derlemeli hem de yorumlamalı programlama dilleri olabilir.
+C. Derleyiciler kaynak kodu direkt olarak işlemcide çalıştırabilir.
+D. Her ikisinde de bağlayıcı(linker) bulunur.
+E. Yorumlayıcının girdisi kaynak program, çıktısı da hedef programdır
+ANSWER: B
+
+Bir fonksiyonda yalnızca hesaplamanın yapıldığı kısma ne ad verilir?
+A. Başlık
+B. Gövde
+C. Çağrı
+D. Argüman
+E. Parametre
+ANSWER: B
+
+Aşağıdakilerden hangisi Assembly dili için yapısal bir kontrol soyutlamasıdır?
+A. Dallanma(Branch) emirleri
+B. Yükleme(Load) emirleri
+C. Aritmetik işlem emirleri
+D. Saklama(store) emirleri
+E. Değil(NOT) emri
+ANSWER: A
+
