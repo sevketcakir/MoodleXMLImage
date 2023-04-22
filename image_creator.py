@@ -31,9 +31,12 @@ class Settings:
             self.code_style = code_style
 
 class ImagePart():
-    def __init__(self, content, settings=Settings()) -> None:
+    def __init__(self, content, settings=None) -> None:
         self.content = content
-        self.settings = settings
+        if settings is None:
+            self.settings = Settings()
+        else:
+            self.settings = settings
         self.image_height = None
         self.image = None
     def create_image(self, **kwargs):
@@ -44,7 +47,11 @@ class ImagePart():
 
 class TextPart(ImagePart):
 
-    def __init__(self, content:str, settings=Settings()) -> None:
+    def __init__(self, content:str, settings=None) -> None:
+        if settings is None:
+            self.settings = Settings()
+        else:
+            self.settings = settings
         super().__init__(content, settings=settings)
         lines = []
         wrapper = textwrap.TextWrapper(width=self.settings.text_width)
@@ -60,7 +67,11 @@ class TextPart(ImagePart):
         return self.image
 
 class CodePart(ImagePart):
-    def __init__(self, language, code, settings=Settings()) -> None:
+    def __init__(self, language, code, settings=None) -> None:
+        if settings is None:
+            self.settings = Settings()
+        else:
+            self.settings = settings
         super().__init__(f"`{language}`{code}`", settings=settings)
         self.language = language
         self.code = code.replace("\\n","\n").replace("\\t", "\t")
@@ -75,8 +86,11 @@ class CodePart(ImagePart):
             return None
         
 class ImageCreator():
-    def __init__(self, settings=Settings()) -> None:
-        self.settings = settings
+    def __init__(self, settings=None) -> None:
+        if settings is None:
+            self.settings = Settings()
+        else:
+            self.settings = settings
 
     def parse_input_string(self, input_string):
         parts = []
@@ -108,7 +122,7 @@ class ImageCreator():
             img.paste(part.get_image(), (0,height))
             height += part.get_image().height
       
-        img.show()
+        # img.show()
         return img
 
 
@@ -119,6 +133,12 @@ if __name__ == "__main__":
     code3 = "`python`def create_tests():\\n    test1 = list(range(10))\\n    if 5 in test1:\\n        print(\"Test failed!!!\")\\n`"
     text2 = text + code + text + code3 + code
     #print(text2)
-    ic = ImageCreator()
+    # import fontconfig
+    # fonts = fontconfig.query(lang='en')
+    # for i in range(1, len(fonts)):
+    #     if fonts[i].fontformat == 'TrueType':
+    #         absolute_path = fonts[i].file
+    #         break
+    ic = ImageCreator(settings=Settings(font_name="Arial.ttf"))
     ic.image(text2)
 

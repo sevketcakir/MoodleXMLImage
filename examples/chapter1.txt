@@ -6,12 +6,12 @@ D. Pascal - Ada
 E. Fortran - Python
 ANSWER: E
 
-(*)Aşağıdakilerden hangisi makine dilininin bir komutu(satırı) olabilir?
-A. 0010001000000100
-B. printf("%d", sayi);
-C. LD R1, FIRST
-D. for(int data:list) sum += data;
-E. (car (cdr '(1 2 3 4)))
+Aşağıdakilerden hangisi makine dilininin bir komutu(satırı) olabilir?
+A. `text`0010001000000100`
+B. `c`printf("%d", sayi);`
+C. `tasm`LD R1, FIRST`
+D. `java`for(int data:list) sum += data;`
+E. `scheme`(car (cdr '(1 2 3 4)))`
 ANSWER: A
 
 Makine dilindeki işlem kodu(opcode) aşağıdakilerden hangisini belirtir?
@@ -102,7 +102,7 @@ D. Yüksek dereceli fonksiyonlar(higher order functions)
 E. İş parçacıkları(thread)
 ANSWER: E
 
-(*)Aşağıdakilerden hangisi veya hangileri zorunlu(imperative) paradigmanın özellikleridir? I. Emirlerin sıralı yürütülmesi II. Bellek konumlarını temsil eden değişkenlerin kullanılması III. Yan etkilerin bulunmaması IV. Değişkenlerin değerlerini değiştirmek için atama işleminin kullanılması
+Aşağıdakilerden hangisi veya hangileri zorunlu(imperative) paradigmanın özellikleridir? \nI. Emirlerin sıralı yürütülmesi \nII. Bellek konumlarını temsil eden değişkenlerin kullanılması \nIII. Yan etkilerin bulunmaması \nIV. Değişkenlerin değerlerini değiştirmek için atama işleminin kullanılması
 A. Yalnız I
 B. Yalnız III
 C. I ve III
