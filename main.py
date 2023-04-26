@@ -1,7 +1,5 @@
 import sys
-from PySide2.QtUiTools import QUiLoader
 from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog, QTreeWidgetItem
-from PySide2.QtCore import QFile, QIODevice
 from PySide2.QtGui import QColor
 from image_creator import ImageCreator, Settings
 from reader import AikenReader
@@ -32,7 +30,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         file_dialog.setNameFilters(["Text files (*.txt)"])
         file_dialog.selectNameFilter("Text files (*.txt)")
         file_dialog.setOption(QFileDialog.DontUseNativeDialog)
-        file_dialog.exec_()#QFileDialog.getOpenFileName(caption="Choose text files", filter="Text files (*.txt);;", options=QFileDialog.DontUseNativeDialog)
+        file_dialog.exec_()
         files = file_dialog.selectedFiles()
         if files:
             filename = file_dialog.selectedFiles()[0]
@@ -64,7 +62,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         file_dialog.selectNameFilter("Moodle XML files (*.xml)")
         file_dialog.setOption(QFileDialog.DontUseNativeDialog)
         file_dialog.setAcceptMode(QFileDialog.AcceptSave)
-        file_dialog.exec_()#QFileDialog.getOpenFileName(caption="Choose text files", filter="Text files (*.txt);;", options=QFileDialog.DontUseNativeDialog)
+        file_dialog.exec_()
         files = file_dialog.selectedFiles()
         if files:
             filename = files[0]
@@ -72,7 +70,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             saver.save(self.quiz, filename)
 
     def preview(self):
-        text = "What is the output of the Python code given below?\\nThis line is to demonstrate wrapping of very long lines. \"Text width\" property is used determine the text length to be wrapped.\\n`python`def mystery(n):\\n\\tif n<2:\\n\\t\\treturn 1\\n\\treturn n*mystery(n-1)\\n\\nmystery(6)\\n`"
+        text = "What is the output of the Python code given below?\\nThis line is to demonstrate wrapping of very long lines. \"Text width\" property is used determine the text length to be wrapped.\\n`python`def mystery(n):\\n\\tif n<2:\\n\\t\\treturn 1\\n\\treturn n*mystery(n-1)\\n\\nmystery(6)\\n`\\nPlease choose an appropriate font if you are using Unicode characters."
         settings = self.generateSettings()
         ic = ImageCreator(settings=settings)
         image = ic.image(text)
