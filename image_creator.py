@@ -18,7 +18,8 @@ class Settings:
                  text_width=60,
                  background_color='midnightblue',
                  color="white",
-                 code_style="native"
+                 code_style="native",
+                 line_numbers=True
                  ) -> None:
             self.font_name = font_name
             self.font_size = font_size
@@ -29,6 +30,7 @@ class Settings:
             self.background_color = background_color
             self.color = color
             self.code_style = code_style
+            self.line_numbers = line_numbers
 
 class ImagePart():
     def __init__(self, content, settings=None) -> None:
@@ -78,7 +80,7 @@ class CodePart(ImagePart):
     def create_image(self, **kwargs):
         try:
             lexer = get_lexer_by_name(self.language)
-            formatter = ImageFormatter(style=get_style_by_name('native'))
+            formatter = ImageFormatter(style=self.settings.code_style, line_numbers=self.settings.line_numbers)
             highlighted = highlight(self.code, lexer, formatter)
             self.image = Image.open(BytesIO(highlighted))
             return self.image
@@ -139,6 +141,7 @@ if __name__ == "__main__":
     #     if fonts[i].fontformat == 'TrueType':
     #         absolute_path = fonts[i].file
     #         break
-    ic = ImageCreator(settings=Settings(font_name="Arial.ttf"))
-    ic.image(text2)
+    ic = ImageCreator(settings=Settings(font_name="DejaVuSerif.ttf"))
+    image = ic.image(text2)
+    image.show()
 

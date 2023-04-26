@@ -78,6 +78,9 @@
            <string>Code Settings</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="1">
+            <widget class="QComboBox" name="settingsCodeStyle"/>
+           </item>
            <item row="0" column="0">
             <widget class="QLabel" name="label_7">
              <property name="text">
@@ -85,27 +88,10 @@
              </property>
             </widget>
            </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="settingsCodeStyle">
-             <property name="text">
-              <string>native</string>
-             </property>
-            </widget>
-           </item>
            <item row="1" column="0">
             <widget class="QCheckBox" name="settingsLineNumbers">
              <property name="text">
               <string>Line Numbers</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QCheckBox" name="settingsStripNewline">
-             <property name="text">
-              <string>Strip Newline</string>
              </property>
              <property name="checked">
               <bool>true</bool>
@@ -121,44 +107,17 @@
            <string>Text Settings</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_4">
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_3">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label">
              <property name="text">
-              <string>Image Width</string>
+              <string>Font Name</string>
              </property>
             </widget>
            </item>
-           <item row="4" column="0">
-            <widget class="QLabel" name="label_5">
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_6">
              <property name="text">
-              <string>Background Color</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QSpinBox" name="settingsImageWidth">
-             <property name="minimum">
-              <number>400</number>
-             </property>
-             <property name="maximum">
-              <number>2000</number>
-             </property>
-             <property name="value">
-              <number>600</number>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="1">
-            <widget class="QLineEdit" name="settingsBackgroundColor">
-             <property name="text">
-              <string>midnightblue</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_2">
-             <property name="text">
-              <string>Font Size</string>
+              <string>Text Color</string>
              </property>
             </widget>
            </item>
@@ -169,6 +128,41 @@
              </property>
              <property name="value">
               <number>16</number>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="settingsTextColor">
+             <property name="text">
+              <string>white</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>Text Width</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>Background Color</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Image Width</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLineEdit" name="settingsBackgroundColor">
+             <property name="text">
+              <string>midnightblue</string>
              </property>
             </widget>
            </item>
@@ -185,38 +179,30 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="label_4">
-             <property name="text">
-              <string>Text Width</string>
+           <item row="2" column="1">
+            <widget class="QSpinBox" name="settingsImageWidth">
+             <property name="minimum">
+              <number>400</number>
+             </property>
+             <property name="maximum">
+              <number>2000</number>
+             </property>
+             <property name="value">
+              <number>600</number>
              </property>
             </widget>
            </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label">
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_2">
              <property name="text">
-              <string>Font Name</string>
+              <string>Font Size</string>
              </property>
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QLineEdit" name="settingsFontName">
-             <property name="text">
-              <string>Arial.ttf</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="0">
-            <widget class="QLabel" name="label_6">
-             <property name="text">
-              <string>Text Color</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="1">
-            <widget class="QLineEdit" name="settingsTextColor">
-             <property name="text">
-              <string>white</string>
+            <widget class="QComboBox" name="settingsFontName">
+             <property name="editable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>

@@ -27,8 +27,10 @@ def CDATA(text):
 ############# stackoverflow #####################
 
 class XMLSaver:
-    def __init__(self) -> None:
-        pass
+    def __init__(self, settings=None) -> None:
+        if settings is None:
+            settings=Settings()
+        self.settings = settings
 
     def save(self, quiz:Quiz, filename:str):
         root = ET.Element("quiz")
@@ -45,7 +47,7 @@ class XMLSaver:
             qcontent = ET.SubElement(qcontent, "text")
             #qcontent.text = '<![CDATA[<img src="@@PLUGINFILE@@/image.png"/>]]'
             qcontent.append(CDATA('<img src="@@PLUGINFILE@@/image.png"/>'))
-            ic = ImageCreator(settings=Settings(font_name="Arial.ttf"))
+            ic = ImageCreator(settings=self.settings)
             image = ic.image(question.text)
             qfile.text = self.convert_image_to_base64(image)
 
@@ -59,7 +61,7 @@ class XMLSaver:
                 cfile.text = self.convert_image_to_base64(cimage)
                 #cx.text = choice.text
 
-        tree = ET.ElementTree(root)
+        # tree = ET.ElementTree(root)
         # ET.indent(tree, space="\t", level=0)
         xmlstr = minidom.parseString(ET.tostring(root)).toprettyxml(indent="    ")
         with open(filename, "wb") as f:
