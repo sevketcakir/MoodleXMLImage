@@ -1,5 +1,5 @@
 import sys
-from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog, QTreeWidgetItem
+from PySide2.QtWidgets import QApplication, QMainWindow, QFileDialog, QTreeWidgetItem, QMessageBox
 from PySide2.QtGui import QColor
 from image_creator import ImageCreator, Settings
 from reader import AikenReader
@@ -25,49 +25,61 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
     def open(self):
-        choice_letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        file_dialog = QFileDialog(self)
-        file_dialog.setNameFilters(["Text files (*.txt)"])
-        file_dialog.selectNameFilter("Text files (*.txt)")
-        file_dialog.setOption(QFileDialog.DontUseNativeDialog)
-        file_dialog.exec_()
-        files = file_dialog.selectedFiles()
-        if files:
-            filename = file_dialog.selectedFiles()[0]
-            reader = AikenReader()
-            self.quiz = reader.read_from_file(filename)
+        try:
+            choice_letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            file_dialog = QFileDialog(self)
+            file_dialog.setNameFilters(["Text files (*.txt)"])
+            file_dialog.selectNameFilter("Text files (*.txt)")
+            file_dialog.setOption(QFileDialog.DontUseNativeDialog)
+            file_dialog.exec_()
+            files = file_dialog.selectedFiles()
+            if files:
+                filename = file_dialog.selectedFiles()[0]
+                reader = AikenReader()
+                self.quiz = reader.read_from_file(filename)
 
-            for i, question in enumerate(self.quiz.questions):
-                q_item = QTreeWidgetItem(self.quizView)
-                q_item.setText(0, str(i+1))
-                q_item.setText(1, question.text)
-                for j,choice in enumerate(question.choices):
-                    c_item = QTreeWidgetItem(q_item)
-                    c_item.setText(0, choice_letters[j])
-                    c_item.setText(1, choice.text)
-                    if choice.correct:
-                        c_item.setBackgroundColor(0,QColor("green"))
-                        c_item.setBackgroundColor(1,QColor("green"))
-                    else:
-                        c_item.setBackgroundColor(0,QColor("red"))
-                        c_item.setBackgroundColor(1,QColor("red"))
-                    q_item.addChild(c_item)
+                for i, question in enumerate(self.quiz.questions):
+                    q_item = QTreeWidgetItem(self.quizView)
+                    q_item.setText(0, str(i+1))
+                    q_item.setText(1, question.text)
+                    for j,choice in enumerate(question.choices):
+                        c_item = QTreeWidgetItem(q_item)
+                        c_item.setText(0, choice_letters[j])
+                        c_item.setText(1, choice.text)
+                        if choice.correct:
+                            c_item.setBackgroundColor(0,QColor("green"))
+                            c_item.setBackgroundColor(1,QColor("green"))
+                        else:
+                            c_item.setBackgroundColor(0,QColor("red"))
+                            c_item.setBackgroundColor(1,QColor("red"))
+                        q_item.addChild(c_item)
+        except Exception as err:
+            box = QMessageBox()
+            box.setWindowTitle("Error")
+            box.setText(str(err))
+            box.exec_()
 
 
     def export(self):
-        if self.quiz is None:
-            return
-        file_dialog = QFileDialog(self)
-        file_dialog.setNameFilters(["Moodle XML files (*.xml)"])
-        file_dialog.selectNameFilter("Moodle XML files (*.xml)")
-        file_dialog.setOption(QFileDialog.DontUseNativeDialog)
-        file_dialog.setAcceptMode(QFileDialog.AcceptSave)
-        file_dialog.exec_()
-        files = file_dialog.selectedFiles()
-        if files:
-            filename = files[0]
-            saver = XMLSaver(settings=self.generateSettings())
-            saver.save(self.quiz, filename)
+        try:
+            if self.quiz is None:
+                return
+            file_dialog = QFileDialog(self)
+            file_dialog.setNameFilters(["Moodle XML files (*.xml)"])
+            file_dialog.selectNameFilter("Moodle XML files (*.xml)")
+            file_dialog.setOption(QFileDialog.DontUseNativeDialog)
+            file_dialog.setAcceptMode(QFileDialog.AcceptSave)
+            file_dialog.exec_()
+            files = file_dialog.selectedFiles()
+            if files:
+                filename = files[0]
+                saver = XMLSaver(settings=self.generateSettings())
+                saver.save(self.quiz, filename)
+        except Exception as err:
+            box = QMessageBox()
+            box.setWindowTitle("Error")
+            box.setText(str(err))
+            box.exec_()
 
     def preview(self):
         text = "What is the output of the Python code given below?\\nThis line is to demonstrate wrapping of very long lines. \"Text width\" property is used determine the text length to be wrapped.\\n`python`def mystery(n):\\n\\tif n<2:\\n\\t\\treturn 1\\n\\treturn n*mystery(n-1)\\n\\nmystery(6)\\n`\\nPlease choose an appropriate font if you are using Unicode characters."
